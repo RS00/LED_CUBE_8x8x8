@@ -34,6 +34,18 @@ void setup() {
   pinMode(LEVEL, OUTPUT);
 }
 
+struct mode
+{
+  bool s0;
+  bool s1;
+  bool s2;
+  bool s3;
+  bool s4;
+  bool s5;
+  bool s6;
+  bool s7;
+} MODE;
+
 void loop() {
   // put your main code here, to run repeatedly:
 
