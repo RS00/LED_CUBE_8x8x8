@@ -12,7 +12,7 @@
 #define SRCK 11
 #define NOT_SRCK 12
 #define RCK 13
-#define NOT_OE 14
+#define NOT_OE A1
 //LEVEL
 #define LEVEL A0
 
