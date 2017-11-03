@@ -1,3 +1,4 @@
+#define CUBESIZE 8
 //COLUMNS
 #define  C0 2
 #define  C1 3
@@ -8,13 +9,25 @@
 #define  C6 8
 #define  C7 9
 //CONTROL
-#define SER 10
-#define SRCK 11
-#define NOT_SRCK 12
-#define RCK 13
+#define SRCLK 11
+#define NOT_SRCLK 12
+#define RCLK 13
 #define NOT_OE A1
 //LEVEL
 #define LEVEL A0
+
+struct mask
+{
+  byte level;
+  byte col0;
+  byte col1;
+  byte col2;
+  byte col3;
+  byte col4;
+  byte col5;
+  byte col6;
+  byte col7;
+} MASK;
 
 void setup() {
   // put your setup code here, to run once:
@@ -26,27 +39,45 @@ void setup() {
   pinMode(C5, OUTPUT);
   pinMode(C6, OUTPUT);
   pinMode(C7, OUTPUT);
-  pinMode(SER, OUTPUT);
-  pinMode(SRCK, OUTPUT);
-  pinMode(NOT_SRCK, OUTPUT);
-  pinMode(RCK, OUTPUT);
+  pinMode(SRCLK, OUTPUT);
+  pinMode(NOT_SRCLK, OUTPUT);
+  pinMode(RCLK, OUTPUT);
   pinMode(NOT_OE, OUTPUT);
   pinMode(LEVEL, OUTPUT);
 }
 
-struct mode
+void enableOutput()
 {
-  bool s0;
-  bool s1;
-  bool s2;
-  bool s3;
-  bool s4;
-  bool s5;
-  bool s6;
-  bool s7;
-} MODE;
+  digitalWrite(NOT_SRCLK, HIGH);
+  digitalWrite(NOT_OE, LOW);
+}
+
+void writeRegister()
+{
+  digitalWrite(SRCLK, LOW);
+  digitalWrite(SRCLK, HIGH);
+}
+
+void latchRegister()
+{
+  digitalWrite(RCLK, LOW);
+  digitalWrite(RCLK, HIGH);
+}
+
+void setMask(mask m)
+{
+  digitalWrite(LEVEL, m.level);
+  digitalWrite(C0, m.col0);
+  digitalWrite(C1, m.col1);
+  digitalWrite(C2, m.col2);
+  digitalWrite(C3, m.col3);
+  digitalWrite(C4, m.col4);
+  digitalWrite(C5, m.col5);
+  digitalWrite(C6, m.col6);
+  digitalWrite(C7, m.col7);
+}
+
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  
 }
