@@ -77,7 +77,48 @@ void setMask(mask m)
   digitalWrite(C7, m.col7);
 }
 
+void mode1()
+{
+  for (int i = 0; i < 8; i++)
+  {
+    enableOutput();
+    MASK.level = HIGH;
+    MASK.col0 = HIGH;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = HIGH;
+    setMask(MASK);
+    writeRegister();
+    latchRegister();
+    delay(200);
+  }
+  for (int i = 0; i < 8; i++)
+  {
+    enableOutput();
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    latchRegister();
+    delay(100);
+  }
+}
 
 void loop() {
-  
+  mode1();
+  mode1();
+  mode1();
+  mode1();
+  delay(500);
 }
