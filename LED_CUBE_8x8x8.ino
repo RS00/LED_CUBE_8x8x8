@@ -77,9 +77,9 @@ void setMask(mask m)
   digitalWrite(C7, m.col7);
 }
 
-void mode1()
+void mode0()
 {
-  for (int i = 0; i < 8; i++)
+  for (int j = 0; j < 3; j++)
   {
     enableOutput();
     MASK.level = HIGH;
@@ -92,13 +92,54 @@ void mode1()
     MASK.col6 = HIGH;
     MASK.col7 = HIGH;
     setMask(MASK);
+    for (int i = 0; i < 8; i++)
+    {
+      writeRegister();
+    }
+    latchRegister();
+    if (j == 2)
+    {
+      delay(1000);
+    }
+    delay(400);
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW; 
+    setMask(MASK);
+    for (int i = 0; i < 8; i++)
+    {
+    writeRegister();
+    }
+    latchRegister();
+    delay(400);
+  }
+}
+
+void mode1()
+{
+    enableOutput();
+    MASK.level = HIGH;
+    MASK.col0 = HIGH;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = HIGH;
+    setMask(MASK);
+  for (int i = 0; i < 8; i++)
+  {
     writeRegister();
     latchRegister();
     delay(40);
   }
-  for (int i = 0; i < 8; i++)
-  {
-    enableOutput();
     MASK.level = LOW;
     MASK.col0 = LOW;
     MASK.col1 = LOW;
@@ -109,6 +150,8 @@ void mode1()
     MASK.col6 = LOW;
     MASK.col7 = LOW;
     setMask(MASK);
+  for (int i = 0; i < 8; i++)
+  {
     writeRegister();
     latchRegister();
     delay(40);
@@ -168,26 +211,17 @@ void mode2()
 void mode3()
 {
    enableOutput();
-   byte randomNum = random(2);
    for (int i = 0; i < 20; i++)
    {
-      MASK.level = randomNum;
-      randomNum = random(2);
-      MASK.col0 = randomNum;
-      randomNum = random(2);
-      MASK.col1 = randomNum;
-      randomNum = random(2);
-      MASK.col2 = randomNum;
-      randomNum = random(2);
-      MASK.col3 = randomNum;
-      randomNum = random(2);
-      MASK.col4 = randomNum;
-      randomNum = random(2);
-      MASK.col5 = randomNum;
-      randomNum = random(2);
-      MASK.col6 = randomNum;
-      randomNum = random(2);
-      MASK.col7 = randomNum;
+      MASK.level = random(2);
+      MASK.col0 = random(2);
+      MASK.col1 = random(2);
+      MASK.col2 = random(2);
+      MASK.col3 = random(2);
+      MASK.col4 = random(2);
+      MASK.col5 = random(2);
+      MASK.col6 = random(2);
+      MASK.col7 = random(2);
       setMask(MASK);
       writeRegister();
    }
@@ -475,6 +509,9 @@ void mode4()
 }
 
 void loop() {
+  if (millis() < 300)
+    mode0();
+  
   for (int i = 0; i < 10; i++)
   {
     mode1();
