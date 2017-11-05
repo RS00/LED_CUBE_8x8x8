@@ -195,6 +195,285 @@ void mode3()
    delay(70);
 }
 
+void mode4()
+{
+  enableOutput();
+  for (int k = 0; k < 700; k++)
+  {
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    for (int i =0; i < 4; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    writeRegister();
+    MASK.level = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    setMask(MASK);
+    writeRegister();
+    writeRegister();
+    writeRegister();
+    latchRegister();
+  }
+  for (int k = 0; k < 250; k++)
+  {
+      MASK.level = LOW;
+      MASK.col0 = LOW;
+      MASK.col1 = LOW;
+      MASK.col2 = LOW;
+      MASK.col3 = LOW;
+      MASK.col4 = LOW;
+      MASK.col5 = LOW;
+      MASK.col6 = LOW;
+      MASK.col7 = LOW;
+      setMask(MASK);
+    for (int i =0; i < 4; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    setMask(MASK);
+    writeRegister();
+    writeRegister();
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    writeRegister();
+    latchRegister();
+    //
+    writeRegister();
+    writeRegister();
+    MASK.level = HIGH;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = LOW;
+    setMask(MASK);
+    for (int i = 0; i < 2; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    writeRegister();
+    latchRegister();
+  }
+  for (int k = 0; k < 250; k++)
+  {
+    MASK.level = HIGH;
+    MASK.col0 = LOW;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    setMask(MASK);
+    for (int i = 0; i < 4; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    latchRegister();
+    //
+    writeRegister();
+    MASK.level = HIGH;
+    MASK.col0 = LOW;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = LOW;
+    setMask(MASK);
+    for (int i = 0; i < 4; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    writeRegister();
+    latchRegister();
+  }
+  for (int k = 0; k < 180; k++)
+  {
+    MASK.level = HIGH;
+    MASK.col0 = HIGH;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = HIGH;
+    setMask(MASK);
+    writeRegister();
+    MASK.level = HIGH;
+    MASK.col0 = HIGH;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = HIGH;
+    setMask(MASK);
+    for (int i = 0; i < 6; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    MASK.col0 = HIGH;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = HIGH;
+    setMask(MASK);
+    writeRegister();
+    latchRegister();
+    MASK.level = LOW;
+    MASK.col0 = LOW;
+    MASK.col1 = LOW;
+    MASK.col2 = LOW;
+    MASK.col3 = LOW;
+    MASK.col4 = LOW;
+    MASK.col5 = LOW;
+    MASK.col6 = LOW;
+    MASK.col7 = LOW;
+    setMask(MASK);
+    for (int i = 0; i < 8; i++)
+    {
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    MASK.col0 = HIGH;
+    MASK.col1 = HIGH;
+    MASK.col2 = HIGH;
+    MASK.col3 = HIGH;
+    MASK.col4 = HIGH;
+    MASK.col5 = HIGH;
+    MASK.col6 = HIGH;
+    MASK.col7 = HIGH;
+    setMask(MASK);
+    writeRegister();
+    for (int i = 0; i < 6; i++)
+    {
+      MASK.level = LOW;
+      setMask(MASK);
+      writeRegister();
+    }
+    MASK.level = HIGH;
+    setMask(MASK);
+    writeRegister();
+    latchRegister();
+  }
+}
+
 void loop() {
   for (int i = 0; i < 10; i++)
   {
@@ -209,4 +488,9 @@ void loop() {
   {
     mode3();
   }
+  for (int i = 0; i < 15; i++)
+  {
+    mode4();
+  }
+  
 }
